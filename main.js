@@ -9,15 +9,20 @@ getLocalStorage();
 
 // inputList.addEventListener('click',deleteFunction )
 // inputList.addEventListener('click', editFunction)
+document.addEventListener('keydown',(e)=>{
+    if(e.code == 'Enter'){
+        addFunction()
+    }
+})
 
-addBtn.addEventListener('click', function () {
+addBtn.addEventListener('click', addFunction)
+  
+function addFunction(){
     input = taskInput.value;
     inputArray.push(input)
     setLocalStorage();
     getLocalStorage();
-
-})
-
+}
 function setLocalStorage() {
     localStorage.setItem("taskInput", JSON.stringify(inputArray));
 }
